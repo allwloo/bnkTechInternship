@@ -45,7 +45,10 @@ public class dbConnectionTest2 {
 			PreparedStatement st = conn.prepareStatement(query);
 			System.out.println("3. PrepareStatement 생성....");
 			
+			//4. 쿼리문 실행
 			ResultSet rs = st.executeQuery(query);
+			System.out.println("4. 쿼리 실행....");
+			
 			while(rs.next()) {
 				System.out.println(rs.getInt("id")+"   "+
 									rs.getString("name")+"  "+
