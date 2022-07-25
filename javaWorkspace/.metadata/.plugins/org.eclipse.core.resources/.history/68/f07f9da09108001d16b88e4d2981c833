@@ -1,0 +1,57 @@
+package com.edu.service;
+
+import com.edu.vo.Customer;
+import com.edu.vo.Pet;
+
+public class PetCareService {
+	
+	private Customer[] customer;
+	
+	
+	
+	
+	public PetCareService(Customer[] customer) {
+		super();
+		this.customer = customer;
+	}
+
+	public Pet[] getPets(Customer cust) {
+		return cust.getPets();
+	}
+	
+	public Pet[] FindBySsn(String customerName, int ssn) {
+		Pet[] temp = new Pet[3];
+		return temp;
+	}
+	
+	public Pet[] FindByPhone(String customerName, String phone) {
+		Pet[] temp = new Pet[3];
+		return temp;
+	}
+	
+	public String GetPetDetail(Customer cust, String animalName) {
+		String temp = null;
+		return temp;
+	}
+	
+	public String[] GetAllPetDetaion(Customer cust) {
+		String[] temp = new String[3];
+		return temp;
+	}
+	
+	public int GetTotalCost(Customer cust) {
+		
+		return 0;
+	}
+	
+	public Pet[] FindHungryPet(Pet[] pets) {
+		Pet[] temp = new Pet[3];
+		return temp;
+	}
+	
+	public Pet[] FindNeedCarePet(Pet[] pets, double maxTemperature, double minTemperature) {
+		Pet[] temp = new Pet[3];
+		return temp;
+	}
+	
+}

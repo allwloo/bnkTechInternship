@@ -1,0 +1,20 @@
+package com.edu.self.service;
+
+import com.edu.self.vo.Engineer;
+import com.edu.self.vo.Manager;
+import com.edu.self.vo.parent.Employee;
+
+public interface EmployeeService {
+
+	
+	public void addEmployee(Employee e);
+	public void deleteEmployee(String name);
+	public void updateEmployee(double salary, String dept, int deptno, String name);
+	public void updateEmployee(double salary, String tech, double bonus);
+//	public Manager findManager(String name);
+//	public Manager[ ] findManager(int deptno);
+	public Employee findEmployee(String name);
+	public void printEmployee();
+	
+	
+}

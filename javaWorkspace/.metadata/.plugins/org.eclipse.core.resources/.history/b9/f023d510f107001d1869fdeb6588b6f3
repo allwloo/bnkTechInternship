@@ -1,0 +1,46 @@
+package com.edu.array.test;
+
+import com.edu.array.vo.Product;
+
+public class ProductArrayTest1 {
+
+	public static void main(String[] args) {
+		Product[] pros = {
+				new Product("신라면", 12000, 5, "농심"),
+				new Product("새우깡", 1000, 2, "농심"),
+				new Product("옥시크린", 32000, 1, "C3"),
+				new Product("삼다수", 8000, 10, "제주")
+		};
+		
+		System.out.println("====상품 정보 출력=====");
+		
+		for(Product returnPros : pros) {
+			System.out.println(returnPros.getDetails());
+		}
+		
+		System.out.println("====상품 메이커 출력====");
+		
+		for(Product returnPros : pros) {
+			System.out.println(returnPros.getMaker());
+		}
+		
+		System.out.println("====1만원 이상의 제품 출력====");
+		
+		for(Product returnPros : pros) {
+			if(returnPros.getPrice()>=10000) System.out.println(returnPros.getDetails());
+		}
+		
+		System.out.println("====구매한 상품의 총 가격 출력====");
+		
+		int sum = 0;
+		for(Product returnPros : pros) {
+			sum += returnPros.getPrice();
+		}
+		System.out.println(sum);
+		
+		
+		
+	}
+
+}
+ 

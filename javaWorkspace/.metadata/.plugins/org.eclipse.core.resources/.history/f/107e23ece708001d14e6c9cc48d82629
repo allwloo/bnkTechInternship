@@ -1,0 +1,40 @@
+package com.edu.self.test;
+
+import com.edu.self.service.EmployeeServiceImpl;
+import com.edu.self.util.MyDate;
+import com.edu.self.vo.Engineer;
+import com.edu.self.vo.Manager;
+import com.edu.self.vo.parent.Employee;
+
+public class EmployeeServiceTest {
+	public static void main(String[] args) {
+		
+		Employee[] eps1 = {new Engineer("김근영", new MyDate(1998,01,21),2400,"C++",500),
+							new Manager("이홍민", new MyDate(1998,04,15),2800,"기획재정부",1)
+							};
+		
+		
+		
+		EmployeeServiceImpl service = EmployeeServiceImpl.getInstance(eps1);
+		
+		
+		System.out.println("=========printEmployee=============");
+		service.printEmployee();
+		
+		
+		System.out.println("========findEmployee========");
+		Employee returnEp = service.findEmployee("이홍민");
+		System.out.println(returnEp.toString());
+		
+		System.out.println("=======addEmployee======");
+	}
+		
+}
+
+
+
+
+
+
+
+

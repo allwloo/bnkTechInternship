@@ -1,0 +1,7 @@
+package com.edu.child;
+
+import com.edu.parent.Employee;
+
+public class Manager extends Employee{
+
+}

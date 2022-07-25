@@ -1,0 +1,17 @@
+package com.edu.test;
+
+public class StaticExamTest1 {
+	
+	/*
+	 * static 성질
+	 * 1. static으로 지정된 멤버는 객체 생성 과정 없이 메모리에 올라간다.
+	 * 2. class 파일이 로더되는 시점에 메모리에 로더된다.
+	 * <ㅡㅡㅡㅡㅡㅡ ㅡ주관식 문제(static)ㅡㅡㅡㅡㅡㅡㅡㅡ>
+	 * 자바 실행 파일이 동작하는 메모리 장소 JVM
+	 */
+
+	public static void main(String[] args) {
+
+	}
+
+}

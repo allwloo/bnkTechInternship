@@ -1,0 +1,129 @@
+package com.edu.self.service;
+import com.edu.self.vo.Engineer;
+import com.edu.self.vo.Manager;
+import com.edu.self.vo.parent.Employee;
+
+public class EmployeeServiceImpl implements EmployeeService {
+	
+	private static Employee[] serviceEps;
+	private int index = 0;
+	
+	private static EmployeeServiceImpl service = new EmployeeServiceImpl();
+	private EmployeeServiceImpl() {
+		System.out.println("Singletone Pattern Ready");
+	}
+	public static EmployeeServiceImpl getInstance(int size) {
+		serviceEps = new Employee[size]; // 최대 수용 인원
+		return service;
+	}
+	
+	public void addEmployee(Employee e) {
+		serviceEps[index++] = e;
+	}
+	
+/*
+	public EmployeeServiceImpl(int size){
+		ms = new Manager[size];
+		egs = new Engineer[size];
+	}
+	public void addManager(Manager m) {	
+		ms[midx++] = m;
+	}
+	public void addEngineer(Engineer eg) {	
+		egs[egidx++] = eg;
+	}
+	public void deleteManager(String name) {	
+		for(int i=0; i<midx; i++) {
+			if(ms[i].getName().equals(name)) {
+				for(int j=i; j<midx; j++) {
+					ms[j] = ms[j+1];
+				}
+				ms[midx] = null;
+				midx--;
+			}
+		}
+	}
+	public void deleteEngineer(String name) {
+		for(int i=0; i<egidx; i++) {
+			if(egs[i].getName().equals(name)) {
+				for(int j=i; j<egidx; j++) {
+					egs[j] = egs[j+1];
+				}
+				egs[egidx] = null;
+				egidx--;
+			}
+		}
+	}
+	public void updateManager(double salary, String dept,int deptno,  String name) {	
+		for(Manager manager : ms) {	
+			if(manager==null) continue;
+			if(manager.getName().equals(name)) {
+				manager.setSalary(salary);
+				manager.setDept(dept);	
+				manager.setDeptno(deptno);				
+			}			
+		}
+	}
+	public void updateEngineer(Engineer eg) {	
+		for(Engineer engineer : egs) {
+			if(engineer==null) continue;
+			if(engineer.getName().equals(eg.getName())) {
+				engineer.setBirthDate(eg.getBirthDate());
+				engineer.setBonus(eg.getBonus());
+				engineer.setSalary(eg.getSalary());
+				engineer.setTech(eg.getTech());
+			}
+		}
+	}	
+	//Method Overloading
+	public Manager findManager(String name) {
+		Manager m = null;
+		for(Manager manager : ms) {
+			if(manager==null) continue;			
+			if(manager.getName().equals(name))
+				m = manager;
+		}
+		return m;
+	}
+	public Manager[ ] findManager(int deptno) {
+		Manager[ ] temp = new Manager[ms.length];
+		int count = 0;
+		for(Manager manager : ms) {
+			if(manager==null) continue;
+			if(manager.getDeptno()==deptno) {
+				temp[count++] = manager;
+			}
+		}
+		return temp;
+	}
+	*/
+	public Employee findEmployee(String name) {
+		Employee targetE = null;
+		for(Employee e : serviceEps) {
+			if(e==null) continue;
+			if(e.getName().equals(name))
+				targetE = e; 
+		}
+		
+		if(targetE == null){
+			System.out.println("Not Found name:"+name);
+			return new Employee())
+		else
+			return targetE;
+	}
+	
+	public void printEmployee() {
+		for(Employee e : serviceEps) {
+			if(e == null) continue;
+			if(e instanceof Engineer)
+				System.out.println(((Engineer) e).toString());
+			else if(e instanceof Manager)
+				System.out.println(((Manager) e).toString());
+			else if(e instanceof Employee)
+				System.out.println(e.toString());
+		}
+	}
+}
+
+
+

@@ -1,0 +1,13 @@
+package com.edu.child;
+
+import com.edu.parent.Employee;
+import com.edu.util.MyDate;
+
+public class Manager extends Employee{
+	private String dept;
+	
+	public Manager(String name, double salary, MyDate birthday, String dept) {
+		super(name, salary, birthday); // 자식을 만드려고 할때 무조건 부모가 만들어 진다.
+		this.dept = dept;
+	}
+}

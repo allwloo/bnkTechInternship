@@ -1,0 +1,9 @@
+package com.edu.array.service;
+
+public class ProductOutletService {
+	//1. 특정 고객이 구입한 상품을 리턴
+	public Product[] getProducts() {
+		
+	}
+
+}

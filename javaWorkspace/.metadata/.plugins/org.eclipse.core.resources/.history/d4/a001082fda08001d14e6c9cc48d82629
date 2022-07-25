@@ -1,0 +1,5 @@
+package com.edu.self.vo.parent;
+
+public class Employee {
+
+}

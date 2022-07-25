@@ -1,0 +1,16 @@
+package com.edu.service;
+
+import com.edu.array.vo.Customer;
+import com.edu.vo.Pet;
+
+public class PetCareService {
+	
+	public Pet[] getPets(Customer cust) {
+		return cust.getPets();
+	}
+	
+	public Pet[] FindBySsn(String customerName, int ssn) {
+		
+	}
+	
+}

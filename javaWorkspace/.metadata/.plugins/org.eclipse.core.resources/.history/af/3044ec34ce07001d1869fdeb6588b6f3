@@ -1,0 +1,60 @@
+package com.edu.capsul;
+/*
+ * Encapsulation 패턴
+ */
+
+public class MyDate {
+
+	private int month;
+	private int day;
+	
+	public int getMonth() { 
+		
+		 return month;
+	}
+	public void setMonth(int month) {
+		//필드초기화 직전에 valid한 값이 할당되도록 제어문을 달아준다.
+		if(month>0&&month<=12)	this.month = month;
+		else	System.exit(0); // 정상종료
+	}
+	public int getDay() {
+		return day;
+	} 
+	public void setDay(int day) {
+		if(this.month == 1 || this.month == 3 || this.month == 5 || this.month == 7 || this.month == 8 ||
+				this.month == 10 || this.month == 12){
+					if(day>0 && day<=31)
+						this.day = day;
+				}
+		else if(this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
+			if(day>0 && day<=30)
+				this.day = day;
+		}
+		else if(this.month == 2) {
+			if(day>0 && day<=28)
+				this.day = day;
+		}
+		else {
+			
+		}
+		
+		/*
+		 * case 2:					스위치 변수 명에 못들어가는것: 실수형
+		 * 		뭐시기뭐시기
+		 * 		break;
+		 * 
+		 * case 4:
+		 * case 6:
+		 * case 9:
+		 * case 11:
+		 * 		뭐시기뭐시기
+		 * 		break;
+		 * default:
+		 * 		뭐시기뭐시기
+		 * 
+		 */
+	}
+	
+	
+	
+}

@@ -1,0 +1,12 @@
+package com.edu.bank.test;
+
+import com.edu.bank.Account;
+
+public class BankArrayTest1 {
+
+	public static void main(String[] args) {
+		Account[] accounts = new Account[3]; // null 초기화
+		
+		for(Account acc : accounts) System.out.println(acc);
+	}
+}

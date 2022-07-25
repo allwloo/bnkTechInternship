@@ -1,0 +1,17 @@
+package com.edu.array.test;
+
+import com.edu.array.service.ProductService;
+import com.edu.array.vo.Product;
+
+// 프로덕트 서비스 + 프로덕트 클래스를 테스트하는 
+
+public class ProductServiceTest2 {
+
+	public static void main(String[] args) {
+		
+		
+	}
+
+	ProductService service = new ProductService();
+}
+ 

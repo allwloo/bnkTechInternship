@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\workshop03"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\java14_Polymorphism"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\workshop01"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\java04_DataType"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\java05_Constructor"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\java06_Condition"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\Java03_inject"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\java02_method"/>
+		<item value="C:\bnk_kgy\eclipse\javaWorkspace\java01_OOP"/>
+	</list>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+		</list>
+	</section>
+</section>

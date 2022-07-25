@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.bank.oop.Greeting"/>
+<fullyQualifiedTypeName name="com.edu.oop.NoteBook"/>
+<fullyQualifiedTypeName name="com.edu.oop2.Programmer"/>
+<fullyQualifiedTypeName name="com.edu.oop2.NoteBook"/>
+<fullyQualifiedTypeName name="com.edu.datatype.WhiteBoard"/>
+<fullyQualifiedTypeName name="com.edu.datatype.MyDate"/>
+<fullyQualifiedTypeName name="com.edu.cons.Shirt"/>
+<fullyQualifiedTypeName name="com.bank.busan.Account"/>
+<fullyQualifiedTypeName name="com.bank.busan.Customer"/>
+<fullyQualifiedTypeName name="com.edu.vo.Customer"/>
+<fullyQualifiedTypeName name="com.edu.vo.Pet"/>
+<fullyQualifiedTypeName name="com.edu.service.PetCareService"/>
+<fullyQualifiedTypeName name="com.edu.child.Manager"/>
+<fullyQualifiedTypeName name="com.edu.util.MyDate"/>
+<fullyQualifiedTypeName name="com.edu.child.Secretary"/>
+<fullyQualifiedTypeName name="com.edu.service.EmployeePolyService"/>
+<fullyQualifiedTypeName name="com.edu.child.Engineer"/>
+<fullyQualifiedTypeName name="com.edu.test.StaticExam"/>
+<fullyQualifiedTypeName name="com.edu.parent.Employee"/>
+<fullyQualifiedTypeName name="com.edu.service.EmployeeService"/>
+<fullyQualifiedTypeName name="com.edu.service.EmployeeServiceImpl"/>
+<fullyQualifiedTypeName name="com.edu.self.util.MyDate"/>
+<fullyQualifiedTypeName name="com.edu.self.vo.parent.Employee"/>
+<fullyQualifiedTypeName name="com.edu.self.service.EmployeeServiceImpl"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.util.Enumeration"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="com.edu.service.impl.EmployeeListServiceImpl"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.edu.vo.Employee"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="java.lang.ArithmeticException"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="com.edu.runtime.test.FileReading"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="com.edu.user.test.AdultMovieService"/>
+</qualifiedTypeNameHistroy>

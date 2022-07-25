@@ -1,0 +1,17 @@
+package com.edu.user.test;
+
+class AdultMovieService{
+	public void entrance(int age) {
+		
+	}
+}
+
+
+public class UserExceptionTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.bank.busan;
+
+public class Account {
+	//변수 선언
+	public int accNumber;
+	public String CustName;
+	public double balance; // 잔고
+	public String bankName;
+	
+	public double getBalance() {
+		return balance;
+	}
+
+	public String getAccountInfo() {
+		return CustName+"의 AccountInfo:  잔고:"+balance+", 은행"+
+											bankName+", 계좌번호"+
+											accNumber;
+	}
+	
+	public String getBankName() {
+		return bankName;
+	}
+	
+	public void deposit(double amt) {
+		if(amt>=1000) balance += amt;
+	}
+	public void withdraw(double amt) {
+		if(amt<=balance) balance -= amt;
+	}
+}

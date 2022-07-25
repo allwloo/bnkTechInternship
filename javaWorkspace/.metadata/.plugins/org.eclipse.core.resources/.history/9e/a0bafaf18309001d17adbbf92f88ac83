@@ -1,0 +1,50 @@
+package com.edu.runtime.test;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+/*
+ * 예외를 즉각적이게 처리하는 방법 try - catch
+ * 
+ * throws ----> 호출한 곳으로 예외를 던짐
+ */
+/*
+ * fianlly 블락은 무조건 수행
+ * 예외가 발생하건 안하건.....
+ * 
+ * finally 블락이 수행되지 않는 유일한 경우가 있음
+ * --> 안에서 또다른 예외가 발생하면 안돌아감.
+ */
+class FileReading2{
+	public void readFile(String fileName) { 
+		//파일 안의 내용을 읽어들이는 로직을 작성 .. .. ..
+		FileReader fr = null;
+		try {
+			fr = new FileReader(fileName);
+			System.out.println("FileReader Creating....");//complie에서 잡아서 출력이 됌
+			}catch(FileNotFoundException e) {
+				//e.printStackTrace(); // 심각한 문제점(보안문제로 사용을 권장하지 않음)
+				/*
+				 * 똑가은거
+				 */
+				System.out.println("파일을 찾을 수 없습니다.");
+			}finally {
+				try {
+					fr.close();
+				} catch (IOException e) {
+					
+				}
+			}
+			System.out.println("fie.....end....;");
+	}
+}
+
+public class CompileExceptionTest2 {
+
+	public static void main(String[] args) {
+		FileReading2 fr = new FileReading2();
+		fr.readFile("C:\\bnk_kgy\\eclipse\\javaWorkspace\\java01_OOP\\src\\test\\greetingTest.java");
+		System.out.println("파일을 잘 읽어들였습니다.");
+	}
+
+}

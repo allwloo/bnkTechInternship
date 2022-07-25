@@ -1,0 +1,30 @@
+package com.edu.runtime.test;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+/*
+ * 예외를 즉각적이게 처리하는 방법 try - catch
+ * 
+ * throws ----> 호출한 곳으로 예외를 던짐
+ */
+class FileReading{
+	public void readFile(String fileName) { 
+		//파일 안의 내용을 읽어들이는 로직을 작성 .. .. ..
+		try {
+			FileReader fr = new FileReader(fileName);
+			System.out.println("FileReader Creating....");
+			}catch(FileNotFoundException e) {
+				e.printStackTrace();
+			}
+				
+	}
+}
+
+public class CompileExceptionTest1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

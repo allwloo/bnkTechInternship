@@ -1,0 +1,30 @@
+package com.edu.collection.test;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashSetTest2 {
+
+	public static void main(String[] args) {
+		Set<String> set = new HashSet<>();
+		
+		set.add("구자경");
+		set.add("염미정");
+		set.add("강호동");
+		set.add("염창희");
+		set.add("염미정");
+		
+		
+		System.out.println(set.size());
+		//Collection은 map이건 뭐든 자체적으로 toString()를 오버라이딩 하고 있다.. 멤버 출력
+		System.out.println(set);
+		System.out.println("이수근이 포함되었는지 여부?"+set.contains("이수근"));
+		System.out.println(set.remove("이수근"));
+		System.out.println(set);
+		
+		set.clear();
+		System.out.println(set.isEmpty());
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.bank.busan.test;
+
+import com.bank.busan.Account;
+import com.bank.busan.Customer;
+
+public class BankAppTest {
+
+	public static void main(String[] args) {
+		
+		Customer ct1 = new Customer("미경",new Account(1, "부산은행"),"부산 연제구");
+		Customer ct2 = new Customer("자경",new Account(2, "부산은행"),"부산 기장군");
+
+		Account ac1 = ct1.getAccount();
+		Account ac2 = ct2.getAccount();
+		
+		
+		
+	}
+
+}

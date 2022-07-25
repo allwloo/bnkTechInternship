@@ -1,0 +1,39 @@
+package com.edu.array.service;
+
+import com.edu.array.vo.Product;
+
+/*
+ * Product들을 handling하는 서비스 클래스
+ * 기능들만 모아 놓는 것
+ * 1)모든 사웊ㅁ들의 maker를 출력하는 기능
+ * 2) 상품들의 총 금액을 리턴하는 기능
+ * 3) 특정금액 이상의 상품들을 리턴하는 기능
+ * 4) 동일한 회사의 제품들만 리턴하는 기능
+ * 5) 구입한 상품들의 평균가를 리턴하는 기능(수량 포함)
+ * 
+ *  기능 5개 선언부를 중요하게 생각함
+ *  5개의 펑션 정의 선언부를 먼저 뽑아
+ *  그러고나서 구현부 작성
+ *  
+ */
+public class ProductService {
+	
+	Product[] products;
+	
+	public void printAllMaker(Product[] products) {
+		
+	}
+	
+	public int getAllPrice(Product[] products) {
+		int amount = 0;
+		
+		return amount;
+	}
+	
+	public Product[] get10e4Product(Product[] products) {
+		Product[] 10e4Products;
+		return 10e4Products;
+	}
+	
+
+}

@@ -1,0 +1,10 @@
+package com.edu.bank.test;
+
+import com.edu.bank.Account;
+
+public class BankArrayTest1 {
+
+	public static void main(String[] args) {
+		Account[] accounts = new Account[3];
+	}
+}

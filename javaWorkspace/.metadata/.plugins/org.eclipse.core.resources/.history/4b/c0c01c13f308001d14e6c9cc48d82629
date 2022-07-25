@@ -1,0 +1,125 @@
+package com.edu.self.service;
+import com.edu.self.vo.Engineer;
+import com.edu.self.vo.Manager;
+import com.edu.self.vo.parent.Employee;
+
+public class EmployeeServiceImpl implements EmployeeService {
+	
+	private static Employee[] serviceEps;
+	private int index = 0;
+	private static int maxIndex;
+	
+	private static EmployeeServiceImpl service = new EmployeeServiceImpl();
+	private EmployeeServiceImpl() {
+		System.out.println("Singletone Pattern Ready");
+	}
+	public static EmployeeServiceImpl getInstance(int size) {
+		serviceEps = new Employee[size]; // 최대 수용 인원
+		maxIndex = size;
+		return service; 
+	}
+	
+	public void addEmployee(Employee e) {
+		if(index>maxIndex) System.out.println("더 이상 저장할 수 없습니다");
+		else serviceEps[index++] = e;
+	}
+	
+	public void deleteEmployee(String name) {
+		for(int i=0; i<index; i++) {
+			if(serviceEps[i].getName().equals(name)) {
+				serviceEps[i] = null;
+				index--;
+			}
+		}
+	}
+	public void updateEmployee(double salary, String dept, int deptno, String name) { // 매니저를 변경
+			for(Employee e : serviceEps) {
+				if(e==null) continue;
+				if(e.getName().equals(name)) {
+					e.setSalary(salary);
+					((Manager) e).setDeptno(deptno);
+					((Manager) e).setDept(dept);
+				}
+			}
+	}
+	public void updateEmployee(double salary, String tech, double bonus, String name) {
+			for(Employee e : serviceEps) {
+				if(e==null) continue;
+				if(e.getName().equals(name)) {
+					e.setSalary(salary);
+					((Engineer) e).setBonus(bonus);
+					((Engineer) e).setTech(tech);
+				}
+			}
+	}
+	public void updateEmployee(double salary, String name) {
+			for(Employee e : serviceEps) {
+				if(e==null) continue;
+				if(e.getName().equals(name)) {
+					e.setSalary(salary);
+				}
+			}
+	}
+	
+	public Employee[] findEmployee(Employee e) { // e -> 사람이 속한 부서의 사람들을 받아온다.
+		Employee[] temp = new Employee[maxIndex];
+		int index = 0;
+		
+		
+		if(e instanceof Engineer) {
+			for(Employee enr : serviceEps) 
+				if(enr instanceof Engineer) 
+					temp[index++] = enr;}
+		else if(e instanceof Manager) {
+			for(Employee mng : serviceEps)
+				if(mng instanceof Manager)
+					temp[index++] = mng;}
+		else if(e instanceof Employee) {
+			for(Employee ely : serviceEps)
+				if(ely instanceof Employee)
+					temp[index++] = ely;}
+
+		return temp;
+	}
+	
+	public Employee findEmployee(String name) {
+		Employee targetE = null;
+		for(Employee e : serviceEps) {
+			if(e==null) continue;
+			if(e.getName().equals(name))
+				targetE = e; 
+		}
+		
+		if(targetE == null){
+			System.out.println("Not Found name:"+name);
+			return new Employee();}
+		else
+			return targetE;
+	}
+	
+	public void printEmployee() {
+		for(Employee e : serviceEps) {
+			if(e == null) continue;
+			if(e instanceof Engineer)
+				System.out.println(((Engineer) e).toString());
+			else if(e instanceof Manager)
+				System.out.println(((Manager) e).toString());
+			else if(e instanceof Employee)
+				System.out.println(e.toString());
+		}
+	}
+	
+	public double calAnnualSalary(Employee e) {
+		double AnnualSalary = 0.0;
+		
+		if(e instanceof Engineer)
+			AnnualSalary = e.getSalary()*12+((Engineer) e).getBonus();
+		else
+			AnnualSalary = e.getSalary()*12;
+			
+		return AnnualSalary;
+	}
+}
+
+
+

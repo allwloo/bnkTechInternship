@@ -1,0 +1,10 @@
+package com.edu.array.test;
+
+public class ProductOutletService {
+//1. 특정 고객이 구입한 상품을 리턴
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

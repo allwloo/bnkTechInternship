@@ -1,0 +1,18 @@
+package com.edu.user.test;
+
+class AdultMovieService{
+	public void entrance(int age) {
+		if(age>=19) System.out.println("Ticketing OK..... Enter!! ");
+		else new ArithmeticException()
+	}
+}
+
+
+public class UserExceptionTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

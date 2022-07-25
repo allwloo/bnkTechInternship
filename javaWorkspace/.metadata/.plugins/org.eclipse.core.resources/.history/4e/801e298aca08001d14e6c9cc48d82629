@@ -1,0 +1,11 @@
+package com.edu.service;
+
+import com.edu.parent.Employee;
+
+/*
+ * 기능의 Template...표준화
+ * V
+ */
+public interface EmployeeService {
+	void manageEmployee(Employee e);
+}

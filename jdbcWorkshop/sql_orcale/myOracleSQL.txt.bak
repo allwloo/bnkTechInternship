@@ -1,0 +1,61 @@
+=== 0725 ====
+SQL
+1)DDL
+테이블 생성 CREATE TABLE mytest(no number(3), name varchar2(20));
+----------------------------------------------------------------------
+2)SELECT
+데이터 조회 SELECT * from emp;
+         SELCET * from emp where = empon=3076;
+3)DML
+테이블에 행 삽입: INSERT INTO mytest(no,name) VALUES(333,'Peter');
+테이블에 행 삭제: DELETE FROM mytest WHERE no=333;
+테이블에 행 수정: UPDATE mytest SET name='Jane' WHERE no=222;
+
+
+
+>>> chapter 2
+1)Projecttion
+emp...번호, 사원이름, 업무를 검색: 
+--> SELCET empno, ename, job FROM emp;
+* emp...이름, 급여, 부서번호를 검색
+--> SELECT ename, sal, deptno FROM emp;
+
+* emp...이름, 급여, 급여에다 300을 더한 급여, 부서번호를 검색
+--> SELECT ename, sal, sal+300, deptno FROM emp;
+
+주로 컬럼에 연산이 적용되었을때는 Alisa를 사용 ---> 급여 인상
+--> SELECT ename, sal, sal+300 AS 급여인상, deptno FROM emp;
+--> SELECT ename, sal, sal+300 급여인상, deptno FROM emp;
+--> SELECT ename, sal, sal+300 "급여 인상", deptno FROM emp;
+
+* emp...사원번호, 업무, 급여, sal*12 (Annual Salary로 별칭)
+--> SELECT empno, job, sal, sal*12 "Annual Salary" FROM emp;
+
+2) Selection
+* emp...업무가 SALESMAN인 사원의 이름, 업무 급여를 검색
+--> SELECT ename, job, sal FROM emp WHERE job='SALESMAN';
+
+3) ORDER BY
+* emp..업무가 SALESMAN인 사원의 이름, 업무, 급여를 급여를 오름차순 기준으로 하여 검색
+--> SELECT ename, job, sal FROM emp WHERE job='SALESMAN' ORDER BY sal;
+
+4) DISTINCT :: 중복 재껴버리는 키워드 // SELECT 바로 뒤에 나온다.
+* emp...부서 번호를 검색
+--> SELECT DISTINCT(deptno) FROM emp;
+--> SELECT DISTINCT(deptno) FROM emp ORDER BY deptno;
+
+5) NULL: 자격없음, 미확정의 이미를 가지는 값.
+*emp...COMM을 오름차순으로 정렬....사원이름, JOB, COMM 출력
+--> SELECT empno, job, comm FROM emp ORDER BY comm;
+
+*emp...COMM이 null인 사람을 검색
+
+SQL> SELECT * FROM emp
+  2  WHERE comm is null;
+
+SQL> SELECT * FROM emp
+  2  WHERE comm is not null;
+
+*emp...사원의 연봉을 구하고 ALIAS를 지정
+SELECT ename, job, sal, sal*12+NVL(comm,0) 연봉 FROM emp;
+nvl(comm, 0):: comm이 null이면 0 null이 아니면 comm값 그대로 사용

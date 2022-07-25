@@ -1,0 +1,21 @@
+package com.edu.runtime.test;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+class FileReading{
+	public void readFile(String fileName) throws FileNotFoundException {
+		//파일 안의 내용을 읽어들이는 로직을 작성 .. .. ..
+		FileReader fr = new FileReader(fileName);
+	}
+}
+
+
+public class CompileExceptionTest1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

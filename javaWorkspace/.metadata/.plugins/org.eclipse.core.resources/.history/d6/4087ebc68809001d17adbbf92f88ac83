@@ -1,0 +1,25 @@
+package com.edu.user.test;
+
+import java.util.Scanner;
+
+class UnderAgeBoom extends Exception{
+	
+}
+
+class AdultMovieService{
+	public void entrance(int age) throws UnderAgeBoom {
+		if(age>=19) System.out.println("Ticketing OK..... Enter!! ");
+		else throw new UnderAgeBoom();
+	}
+}
+
+
+public class UserExceptionTest {
+
+	public static void main(String[] args) {
+		AdultMovieService service = new AdultMovieService();
+		Scanner sc = new Scanner(System.in);
+
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.edu.capsul.test;
+
+import java.util.Scanner;
+
+import com.edu.capsul.MyDate;
+
+/*
+ * month, day값을 Scanner로 받는다 
+ */
+
+public class MyDateTest {
+
+	public static void main(String[] args) {
+		MyDate md = new MyDate();
+//		
+		Scanner sc = new Scanner(System.in);
+		
+		if(md.getMonth()!=0 && md.getDay()!= 0)	System.out.println("오늘은 "+md.getMonth()+"월 "+md.getDay()+"일 입니다.");
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.edu.child;
+
+import com.edu.parent.Employee;
+import com.edu.util.MyDate;
+
+public class Manager extends Employee{
+	private String dept;
+	
+	public Manager(String name, double salary, MyDate birthday, String dept) {
+		super();
+		this.name = name;
+		this.salary = salary;
+		this.birthday = birthday;
+		this.dept = dept
+	}
+}

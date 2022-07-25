@@ -1,0 +1,19 @@
+package com.edu.collection.test;
+
+import java.util.Enumeration;
+import java.util.Properties;
+
+public class PropertiesTest1 {
+
+	public static void main(String[] args) {
+		
+		Properties p = System.getProperties();
+		
+		Enumeration<String> en = (Enumeration<String>)p.propertyNames();
+		
+		System.out.println(p.toString());
+		System.out.println(en.toString());
+
+	}
+
+}

@@ -1,0 +1,35 @@
+package com.edu.array.service;
+
+import com.edu.array.vo.Customer;
+import com.edu.array.vo.Product;
+
+public class ProductOutletService {
+	//1. 특정 고객이 구입한 상품을 리턴
+	public Product[] getProducts(Customer cust) {
+		return cust.getProducts();
+	}
+	
+	//2. 특정 고객이 구입한 상품의 maker들만 리턴..
+	public String[] getAllProductMaker(Customer cust) {
+		String[] temp = new String[cust.getProducts().length];
+		
+		return temp;
+	}
+	// 오버로딩 해보기
+	//3. 모든 고객들 중에서 특정한 고객을 검색하는 기능 search, find
+	//ssn으로 검색
+	public Customer findCustomerBySsn(Customer[] custs, int ssn) {
+		Customer customer = null;
+		
+		return customer;
+	}
+	
+	//특정한 동내에 살고있는 고객들을 검색
+	public Customer[] findCustomerByAddress(Customer[] custs, string address) {
+		Customer[] temp = new Customer[custs.length];
+		
+		return temp;
+	}
+	
+
+}
