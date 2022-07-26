@@ -41,7 +41,7 @@ public class dbConnectionTest2 {
 			System.out.println("DB서버 연결 성공");
 			
 			//3. PreparedStatement 객체 생성
-			
+			String query = "";
 			PreparedStatement st = conn.prepareStatement(query);
 			System.out.println("3. PrepareStatement 생성....");
 			

@@ -32,4 +32,8 @@ SELECT ename, job FROM emp WHERE ename LIKE '_M%';
 
 SELECT ename, job, hiredate FROM emp WHERE hiredata LIKE '82%';
 
-SELECT job FROM emp 
+-- 0726
+-- 단일행 함수
+-- 문자함수 substr()
+-- emp테이블에서 업무중에서 SALESMAN 업무를 SALSE만 출력되도록 문자열 추출
+SELECT SUBSTR(job, 1,5) FROM emp WHERE job = 'SALESMAN'; 
