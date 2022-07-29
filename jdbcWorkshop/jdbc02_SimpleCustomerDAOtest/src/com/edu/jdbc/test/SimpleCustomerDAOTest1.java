@@ -4,9 +4,7 @@ import java.sql.SQLException;
 
 import com.edu.jdbc.dao.CustomerDAO;
 
-import config.ServerInfo;
-
-public class SimpleCustomerDAOTest1 {
+public class SimpleCustomerDAOTest1{
 
 	public static void main(String[] args) throws ClassNotFoundException {
 		CustomerDAO dao = new CustomerDAO();
