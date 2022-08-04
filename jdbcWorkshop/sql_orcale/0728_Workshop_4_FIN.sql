@@ -22,6 +22,9 @@ SELECT e.empno, e.ename, e.job, s.grade, s.losal, s.hisal
 FROM emp e, salgrade s
 WHERE e.sal>=s.losal AND e.sal <= s.hisal;
 
+WHERE
+SELECT
+
  
 -- ### outer join ###
 -- 4.  dept Table에 있는 모든 부서를 출력하고, emp Table에 있는 
