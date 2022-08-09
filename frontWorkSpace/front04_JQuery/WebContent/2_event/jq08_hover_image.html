@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<style>
+    .lager{width:200px;border:2px solid tomato;}
+</style>
+<script>
+   $(function(){
+        //이미지에 마우스...
+        $('img').hover(function(){
+            $(this).addClass('lager');
+        },function(){
+            $(this).removeClass('lager');
+        })
+    });
+</script>
+</head>
+<body>
+    <h1>Bigger Image....</h1>
+    <img src='../image/1.jpg' width="100">
+    <img src='../image/2.jpg' width="100">
+    <img src='../image/3.jpg' width="100">
+    <img src='../image/4.jpg' width="100">
+</body>
+</html>
