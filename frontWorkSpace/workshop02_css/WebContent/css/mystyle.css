@@ -1,0 +1,126 @@
+*{
+    box-sizing: content-box;
+}
+
+body{
+    background-color: antiquewhite;
+}
+body>header{
+    text-align:left;
+    padding: 10px 70px;
+}
+
+nav>ul{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style-type: none;
+    height: 60px;
+}
+
+nav>ul>li{
+    margin-top: 20px;
+    padding-left: 13%;
+}
+nav>ul>li>a{
+    text-decoration: none;
+    color: white;
+}
+
+#intro{
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px;
+    background: linear-gradient(0deg, yellow, lightGreen);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.inner-text{
+    padding-right: 50%;
+}
+
+
+#content{
+    width: 80%;
+    margin: 0px 10%;
+}
+
+#mainContent{
+    float:left;
+    width: 70%;
+}
+.blogPost>header>p{
+    font-style: italic;
+}
+
+#article1{
+    float: left;
+    width: 35%;
+    height: 500px;
+
+}
+
+#article2{
+    float: right;
+    width: 45%;
+    height: 500px;
+    margin-right: 5%;
+}
+
+
+
+aside{
+    margin: 2.5%;
+    width: 25%;
+    background-color: aqua;
+    float: right;
+    border-radius: 30px;
+    height: 650px;
+}
+
+aside>section{
+    padding-left: 30px;
+}
+
+aside ul{
+    list-style-type: none;
+}
+
+aside ul>li>a{
+    text-decoration: none;
+}
+
+footer{
+    clear:both;
+    width:100%;
+}
+
+
+footer>div>section{
+    padding-left: 30px;
+    width: 30%;
+    float: left;
+    background-color: black;
+}
+
+footer>div>section>h3, ul{
+    color: white;
+}
+
+footer>div>section>ul, p{
+    color: gray;
+}
+
+footer>div>section>ul>li>a{
+    text-decoration-color: gray;
+    color: gray;
+}
+
+footer p>a{
+    text-decoration-color: gray;
+    color: gray;
+}
+
+

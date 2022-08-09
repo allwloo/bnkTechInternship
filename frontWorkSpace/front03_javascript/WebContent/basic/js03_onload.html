@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuert의 onload()함수 :: ready()</title>
+    <!-- jquery cdn 연결
+    
+    js의 onload() :: 단 한번만 사용
+    jQueru의 ready() :: 여러번 호출 가능
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var list = '';
+        //1. 복합연산자 사용
+            list += '<ul>';
+            list += '<li>Hello</li>';
+            list += '<li>JavaScript</li>';
+            list += '</ul>';
+            document.getElementById("wrap").innerHTML = list;
+        })
+            
+        $(document).ready(function(){
+            alert("AAAAA~~~~");s
+        })
+
+        $(document).ready(function(){
+            alert("ABBBBB~~~~");s
+        })
+
+        
+    
+        //2. html 특정 태그를 받아와서 그 부분에 출력이 되도록 작업
+        
+    </script>
+</head>
+<body>
+    <h2 align="center">=========onload============</h2>
+    <div id="wrap">
+
+    </div>
+
+</body>
+
+</html>
+

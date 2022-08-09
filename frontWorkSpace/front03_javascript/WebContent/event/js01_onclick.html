@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>onclick이벤트</title>
+    <style>
+        h2::selection{
+            color: blue;
+        }
+    </style>
+    <script>
+        function push(){
+            //alert(push);
+            demo = document.getElementById("demo"); // 전역 변수
+            alert(demo);
+            demo.innerHTML = "<h2><font color='tomato' /> Hello getElementById()~ </h2>";
+        }
+    </script>
+</head>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="demo">JavaScript can change HTML content.</p>
+
+<button type="button" onclick="push()">Click Me!</button>
+
+</body>
+</html>

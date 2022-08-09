@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        var obj1 = {name:'James',age:44,phone:'010-234-2356'};
+        console.log(obj1)
+
+        var obj2 = new Object();
+        obj2.name = "Á¦ÀÌ½¿";
+        obj2.age = 33;
+        obj2.phone = "010-234-2356";
+        console.log(obj2)
+
+        //3.
+        obj2.getInfo = function(){
+            return this.name+" ´ÔÀÇ ³ªÀÌ´Â "+this.age+this;
+        }
+        console.log(obj2.getInfo());
+    </script>
+</html>
+<body>
+
+</body>

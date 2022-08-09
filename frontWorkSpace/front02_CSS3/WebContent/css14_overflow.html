@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<HtML>
+<head>
+    <style>
+        #parent{
+            border:1px solid black;
+            padding: 10px;
+            overflow: hidden;
+        }
+        #child{
+            border:1px solid tomato;
+            margin: 0px;
+            float: left;
+
+            /*
+                자식요소에서 float 요소 사용시 부모요소의 범위를 벗어나게 된다.
+                부모요소의 크기를 아주 크게 잡기
+                2. overflow...를 지정 hidden.... 부모요소에...            */
+        }
+
+        #article{
+            border: 1px solid slateblue;
+            float: left;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child">
+            부산은행 연수원 과정 진행중
+        </div>
+    </div>
+    <div id="article">
+        2022-08-08 FrontUI 오늘 스케쥴
+    </div>
+</body>
+</HtML>

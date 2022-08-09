@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1) 익명함수 선언법 | 2) 선언적 함수 선언법</title>
+        <script>
+            // 1익명함수
+            /*
+            var func = function(){
+                alert("func.A....zd")
+            }
+            func();*/
+            /*
+            func()
+            var func = function(){
+                alert("func.B")
+            }
+
+            //2. 선언적 함수 정의
+            function func(){
+                alert("Func...A") 
+            }*/
+
+            var func = function(){
+                alert("Func...Anonmos...")
+                
+            }
+            function func(){
+                alert("func function");
+            }
+            func();//선언적 함수가 모두 로드되고 나서 익명함수가 덧씌워지기때문에 익명함수가 호출됌
+        </script>
+    </head>
+    <body>
+
+
+    </body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <style>/*
+            #box{
+                visibility: hidden;
+            }
+            #box{
+                display: none;
+            }
+            #box{
+                display: inline;
+            }
+            #box{
+                display: block;
+            }*/
+            #box{
+                display: inline-block;
+            }
+            /*inline은 하나의 inline으로 취급받기 때문에 style을 한꺼번에 줘야만 함...
+            inline block은 하나의 inline으로 보이긴 하지만 그 안에 독자적으로 block을 형성해서 style시트를 독자적으로 지정할 수 있음.*/
+        </style>
+    </head>
+    <body>
+        <span>Dummy</span>
+        <div id="box">
+            <span>누구든지 체포 또는 구속을 당한 때에는 즉시 변호인의 조력을 받을 권리를 가진다. 다만, 형사피고인이 스스로 변호인을 구할 수 없을 때에는 법률이 정하는 바에 의하여 국가가 변호인을 붙인다.</span>
+        </div>
+        <span>Dummy</span>
+    </body>
+</html>

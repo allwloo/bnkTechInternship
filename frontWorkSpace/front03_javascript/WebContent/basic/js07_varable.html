@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+    전역변수(클래스 변수)
+    지역변수(로컬변수)
+    상수
+
+-->
+<html>
+    <head>
+        <script>
+            var myName = "Peter"; // 전역변수
+
+            name = "James";// 자동으로 전역변수가 된다.
+            console.log(typeof(name));
+
+            function showAge(){
+                var age = 33; // 지역변수
+                myage = 22; // 전역변수
+                console.log(age); // 지역변수... let.... const....
+                console.log(myage);
+            }
+            showAge();
+            //console.log(age);
+            console.log(myage);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
