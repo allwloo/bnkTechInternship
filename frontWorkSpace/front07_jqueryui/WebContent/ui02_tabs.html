@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/blitzer/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<style>
+</style>
+<script>
+/*
+ * tap을 클릭했을때 정적인 데이터가 출력이 되고 있다...
+ * tab을 클릭했을때 서버로 요청이 들어가고... 그 결과의 결과페이지의 내용이 출력되어야 한다...
+ */
+   $(function(){
+                $('#tabs').tabs();
+    });
+</script>
+</head>
+<body>
+	<div id="tabs">
+  <ul>
+    <li><a href="tabpage/content1.jsp">현재 폭우 상황</a></li>
+    <li><a href="tabpage/content2.jsp">중국 반도체 시장</a></li>
+    <li><a href="tabpage/content3.jsp">스포츠 지금은</a></li>
+  </ul>
+</div>
+</body>
+</html>

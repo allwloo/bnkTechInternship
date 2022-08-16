@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/sunny/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #clothing{ margin-left:200px; width:600px; float:left;}
+
+  #cart{margin-right:300px; width:450px; float:right; padding:2px; margin-top:1px;}
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+  	$( "#catalog" ).accordion({
+  		heightStyle: 'content'
+  	});
+  	
+  	$( "li" ).draggable({
+  		helper:'clone',
+  		appendTo: '#cart'
+  	});
+  	
+  	$("#cart ol").droppable({
+  		drop: function(event,ui){
+  			$(this).find('.drophere').remove();
+  			var uidrag = ui.draggable.text();
+  			$(this).append('<li>'+uidrag+'</li>');
+  		}
+  	})
+  
+  } );
+  </script>
+</head>
+<body>
+ 	<div id="clothing">
+ 		<h2>카달로그</h2>
+ 		<div id="catalog">
+ 			<h2><a href="#">상의류</a></h2>
+ 			<div>
+ 				<ul>
+ 					<li>셔츠</li>
+ 					<li>셔츠</li>
+ 					<li>셔츠</li>
+ 					<li>셔츠</li>
+ 					<li>셔츠</li>
+ 				</ul>
+ 			</div>
+ 			
+ 			<h2><a href="#">하의류</a></h2>
+ 			<div>
+ 				<ul>
+ 					<li>정장바지</li>
+ 					<li>청바지</li>
+ 					<li>반바지</li>
+ 					<li>청바지</li>
+ 					<li>면바지</li>
+ 				</ul>
+ 			</div>
+ 			
+ 			
+ 			<h2><a href="#">액세서리</a></h2>
+ 			<div>
+ 				<ul>
+ 					<li>귀걸이</li>
+ 					<li>팔찌</li>
+ 					<li>백팩</li>
+ 					<li>손지갑</li>
+ 					<li>장지갑</li>
+ 				</ul>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	
+ 	
+ 		<!--  cart 부분  -->
+ 		<div id="cart">
+ 			<h2 class="ui-widget-header">Clothing Cart</h2>
+ 			<div class="ui-widget-header">
+ 				<ol>
+ 					<li class="drophere">drop here</li>
+ 				</ol>
+ 			</div>
+ 		</div>
+ 		
+</body>
+</html>

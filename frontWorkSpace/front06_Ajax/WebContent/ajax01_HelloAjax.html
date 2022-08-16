@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<style>
+</style>
+<script>
+   $(function(){
+           //버튼 클릭하면 함수 호출
+           $('#JQueryAjax').click(function(){
+                //비동기 시작
+                $.ajax({
+                    //요청부분
+                    type:"get",
+                    url:"HelloAjax?data=BNK",
+
+                    //응답부분
+                    success:function(data){
+                        $('#reslutScope').html(data);
+                    },
+                    error:function(){
+                        
+                    },
+                    timeout:1000//1초동안 서버로부터 응답이 없으면 에러
+                });//ajax
+           });     
+    });
+</script>
+</head>
+<body>
+    <input type="button" value="JQueryAjax" id="JQueryAjax">
+</body>
+</html>

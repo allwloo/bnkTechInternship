@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<style>
+</style>
+<script>
+   $(function(){
+        $('#AjaxBtn').click(function () {
+            var id = $('#userId').val();
+
+            $.ajax({
+
+                type:'post',
+                url:'http://localhost:8888/front06_Ajax/FormAjax',
+                data:{"id":id}, // XMLHttpRequest 객체에 담긴다
+                
+
+                //응답
+                success:function(data){
+                    alert(data);
+                    $('#resultScope').html("<h2><font color=tomato>"+data+"</font></h2>");
+                },
+                error:function(){
+                    alert("실패 ! ");
+                }
+
+            });
+        })
+    });
+</script>
+</head>
+<body>
+    ID <input type="text" name="userId" id="userId">
+    <input type="button" value="AjaxBtn" id="AjaxBtn">
+    <div id="resultScope"></div>
+</body>
+</html>

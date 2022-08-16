@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<style>
+</style>
+<script>
+   $(function(){
+        $('#saveBtn').click(function(){
+            localStorage.setItem('key1',"안녕?"); // 함수이용
+            localStorage.key2 = "HI";
+            localStorage["key3"] = "Hello";
+        })
+        $('#delBtn').click(function(){
+            localStorage.removeItem("key1");
+        })
+        $('#delAllBtn').click(function(){
+            localStorage.clear();
+        })
+        $('#showBtn').click(function(){
+            alert(localStorage.getItem("key1")+","+localStorage.key2+","+localStorage["key3"]);
+        })
+    });
+</script>
+</head>
+<body>
+    <button id="saveBtn">저장</button>
+    <button id="delBtn">삭제</button>
+    <button id="delAllBtn">전체삭제</button>
+    <button id="showBtn">내용보기</button>
+</body>
+</html>

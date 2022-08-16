@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/blitzer/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion()
+	{
+		heightStyle: 'content';
+	}
+	);
+    
+    $('#accordion h3').click(function(){
+    	var text = $(this).text();
+    	//alert(text);
+    	if(text=="INTRO"){
+
+			
+    	
+    	}else if(text=="BNK 연수 과정 리스트"){
+
+			$.ajax({
+				type: 'get',
+				url: 'subject.do',
+				
+				success:function(result){
+					$('#subject').html(result);
+				},
+			});
+			
+		}else{
+			$.ajax({
+				type: 'get',
+				url: 'branches.do',
+
+				success:function(result){
+					$('#branches').html(result);
+				}
+			});
+		}
+    }); // click
+  } );
+  </script>
+</head>
+<body>
+ 
+<div id="accordion">
+  <h3>INTRO</h3>
+	  <div>
+		    <p>
+				부산은행 연수원을 찾아주셔서 감사합니다.<br>
+				인턴 여러분ㄴ들은 앞으로 3개월동안 <br>
+				크크크큭<br>
+		    </p>
+	  </div>
+  <h3>BNK 연수 과정 리스트</h3>
+	  <div id="subject">
+
+	  </div>
+  <h3>Section 1</h3>
+	  <div id="branches">
+
+	  </div>
+</div>
+ 
+ 
+</body>
+</html>

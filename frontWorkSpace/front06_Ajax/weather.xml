@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 공공데이터 포털사이트 에서 가지고온 기상청 xml 데이터 :: 서버에 저장-->
+<info>
+	<list>
+		<region>부산</region>
+		<wind>45</wind>
+		<rain>12</rain>
+		<temp>32</temp>
+	</list>
+	<list>
+		<region>서울</region>
+		<wind>425</wind>
+		<rain>112</rain>
+		<temp>322</temp>
+	</list>
+	<list>
+		<region>광주</region>
+		<wind>4</wind>
+		<rain>1</rain>
+		<temp>3</temp>
+	</list>
+	<list>
+		<region>중국</region>
+		<wind>435</wind>
+		<rain>102</rain>
+		<temp>32</temp>
+	</list>
+	<list>
+		<region>부산</region>
+		<wind>45</wind>
+		<rain>12</rain>
+		<temp>32</temp>
+	</list>
+</info>
