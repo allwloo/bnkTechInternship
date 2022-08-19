@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Bean 설정 File  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+												 
+												 
+    <bean id="customer1" class="spring.service.broker.vo.Customer">
+    <property name="ssn" value="222"></property>
+    <property name="custName" value="김태리"></property>
+    <property name="address" value="고려말"></property>
+    </bean>
+    <bean id="stock1" class="spring.service.broker.vo.Stock">
+    <property name="symbol" value="기아"></property>
+    <property name="price" value="80.3"></property>
+    </bean>
+    <bean id="customer2" class="spring.service.broker.vo.Customer">
+	    <constructor-arg value="111" />
+	    <constructor-arg value="김근영" />
+	    <constructor-arg value="연제구" />
+    </bean>
+    <bean id="stock2" class="spring.service.broker.vo.Stock">
+	    <constructor-arg value="LG생활건강" />
+	    <constructor-arg value="738.23" />
+    </bean>
+    
+    <bean id="db1" class="spring.service.broker.impl.BrokerDataBaseImpl">
+
+    </bean>
+    
+    <!-- 
+    <bean id="db2" class="spring.service.broker.impl.BrokerDataBaseImpl">
+		<property name="registerStock" ref="stock1"></property>
+		<property name="registerCustomer" ref="customer2"></property>
+    </bean>
+     -->
+   
+	
+</beans>
+
+<!--  객체생서으이 주체는 container에게.. ioc 제어의 역전, 프로그래머는 주문서 작성의 주체... -->

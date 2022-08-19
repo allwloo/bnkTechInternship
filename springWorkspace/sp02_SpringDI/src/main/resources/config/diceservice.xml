@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Bean 설정 File  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+     <!--
+     	ㅇ Hello instance 생성 서술적, 선언적 기술
+			1. bean element  
+				- id : instance identifier 
+				- class : instance 생성 Bean (FQCN)
+     -->
+    <bean id="DiceA" class="spring.service.dice.impl.DiceAImpl"></bean>
+    <bean id="DiceB" class="spring.service.dice.impl.DiceBImpl"></bean>
+    <bean id="DiceC" class="spring.service.dice.impl.DiceCImpl"></bean>
+    <bean id="DiceD" class="spring.service.dice.impl.DiceDImpl"></bean>
+    
+    <!--  사용자 정의 빈:: 주사위 a를 주입 -->
+	<bean id="player01" class="spring.service.dice.play.Player02">
+	<constructor-arg ref="DiceA"/>
+	</bean>
+	
+	<bean id="player02" class="spring.service.dice.play.Player02">
+	<constructor-arg ref="DiceB"/>
+	</bean>
+	
+	<bean id="player03" class="spring.service.dice.play.Player02">
+	<property name="dice" ref="DiceC"/>
+	</bean>
+	
+	<bean id="player04" class="spring.service.dice.play.Player02">
+	<property name="dice" ref="DiceA"/>
+	</bean>
+	
+</beans>
+
+<!--  객체생서으이 주체는 container에게.. ioc 제어의 역전, 프로그래머는 주문서 작성의 주체... -->

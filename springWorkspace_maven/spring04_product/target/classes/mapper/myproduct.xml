@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="ns.sql.MyProduct">
+	
+	<!-- Insert문에서 pk에 해당하는 값이 db에서 자동증가 되는 값일때는 쿼리문 작성에 유의해야한다. 
+		화면으로 부터 값을 받아서 생성하는 VO와 디비에서 증가된 레코드 ROW가 완전히 동기화 되도록 쿼리문이 작성되어져야
+		이후에 프로그램 작성시 문제 발생 되지 않는다.
+		SelectKey 쿼리는 Insert문에만 있음
+	-->
+	<insert id="addProduct" parameterType="myProduct">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			SELECT myproduct_seq.nextVal FROM dual
+		</selectKey>
+		INSERT
+		INTO myproduct (id, name, maker, price)
+		VALUES(#{id},#{name},#{maker},#{price})
+	</insert>
+	
+	<select id="selectProduct">
+		SELECT *
+		FROM myproduct
+	</select>
+</mapper>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

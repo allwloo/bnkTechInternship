@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	
+	mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
+	- MyBatis Framework 은 XML MetaData를 사용 SQL구문을 관리하며,
+	  (SQL은 xml 을 통해 적절히 캡슐화 되어 애플리케이선 의 외부로 분리함)
+	- SQL문의 입력(?) / 출력(?)을 매핑한다.  <== 아래의 select element 참조
+ -->
+ 
+<!-- 심플하게 CRUD를 다 해보겠다. -->
+<mapper namespace="UserMapper05">
+
+	
+	
+	<select id="addUser" parameterType="user">
+		INSERT INTO users(user_id, user_name, password, age, grade, reg_date)
+		<!-- 컬럼명과 필드명이 다를때는 as로 alias 줘야함 -->
+		VALUES(#{userId}, #{userName}, #{password}, #{age}, #{grade}, #{regDate})
+	</select>
+	
+	<select id="updateUser" parameterType="user">
+		UPDATE users
+		SET user_id = #{userId} , user_name = #{userName},
+		 password = #{password},
+		 age = #{age},
+		  grade = #{grade},
+		   reg_date = #{regDate}
+		WHERE user_id = #{userId}
+		<!-- 컬럼명과 필드명이 다를때는 as로 alias 줘야함 -->
+	</select>
+	
+	<select id="removeUser" parameterType="string">
+		DELETE 
+		FROM users
+		WHERE user_id = #{value}
+	</select>
+</mapper>
+
+<!-- 
+	단순 패러미터 값을 받는 문법 #{value}
+	J2SE API에서 제공되는 라이브러리 중에서 많이 사용되는 것들은 전부 ㅏㄹ리야스로 제공되어있다
+	
+	java.lang.String :: string
+	java.lang.Byte, Integer, Float, Double :: byte, long, float, double, int
+	java.util.Hashmap :: hashmap
+	java.util.ArrayList ;; arraylist
+	
+	
+	byte :: _byte
+	int :: _int 
+	
+	LIKE 연산자와 와일드카드
+ -->
+ 
+ 
+ <!-- 
+ 	Null 값 허용하는 옵션을 SqlMapConfig01.xml에 추가
+ 	
+ 	CRUD
+ 	select: session.selectList() : List
+ 			session.selectOne() : Obejct
+ 	insert:	session.insert() : Object(0,1)
+ 	delete: session.delete() : Object(0,1)
+ 	update: session.update() : Object(0,1)
+ 	
+ 	MyBatis Framework에서만 작동할 경우 (Spring 연결 안된 경우)
+ 	insert(), delete(), update() 수행직후 반드시 commit()해야 완벽하게 디비 반영된다.
+ 	반대로, Spring 연결이 되는 경우에는 insert(), delete(), update() 수행직후 commit()을 하게 되면 Error 발생
+  -->

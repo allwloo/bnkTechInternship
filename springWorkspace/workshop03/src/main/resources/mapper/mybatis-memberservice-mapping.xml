@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	
+	mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
+	- MyBatis Framework 은 XML MetaData를 사용 SQL구문을 관리하며,
+	  (SQL은 xml 을 통해 적절히 캡슐화 되어 애플리케이선 의 외부로 분리함)
+	- SQL문의 입력(?) / 출력(?)을 매핑한다.  <== 아래의 select element 참조
+ -->
+ 
+<!--
+SELECT문일때,
+컬럼명과 VO필드명이 다를때(user_name | userName)
+select문에서 컬럼명 옆에 반드시 AS 알리야스를 일일히 지정해야한다.
+
+이런 경우를 위해서 ResultMap이라는게 있어용
+
+ -->
+<mapper namespace="MemberMapper">
+	<resultMap type="member" id="MemberSelectMap">
+		<result property="id" column="id" jdbcType="VARCHAR" />
+		<result property="password" column="password" jdbcType="VARCHAR" />
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="address" column="address" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<sql id="select-members">
+		SELECT id, password, name, address FROM member
+	</sql>
+	<sql id="orderby-userid-desc">
+		ORDER BY id DESC
+	</sql>
+	
+	<insert id="registerMember" parameterType="member">
+		INSERT INTO member(id, password, name, address)
+		<!-- 컬럼명과 필드명이 다를때는 as로 alias 줘야함 -->
+		VALUES(#{id}, #{password}, #{name}, #{address})
+	</insert>
+	
+	
+	<delete id="deleteMember" parameterType="string">
+		DELETE 
+		FROM member
+		WHERE id = #{value}
+	</delete>
+	
+	<update id="updateMember" parameterType="member">
+		UPDATE member SET password=#{password}, name=#{name}, address=#{address} WHERE id=#{id}
+	</update>
+	
+	
+	<select id="showAllMember" resultMap="MemberSelectMap">
+		<include refid="select-members"/>
+	</select>
+	
+	<select id="getMember" parameterType="string" resultMap="MemberSelectMap">
+		<include refid="select-members"/>
+		WHERE id=#{id}
+	</select>
+	
+	<!-- 로그인도 수행 -->
+	<select id="idExist" parameterType="member" resultMap="MemberSelectMap">
+		<include refid="select-members"/>
+		<where>
+				<if test="password != null">
+					id = #{id}
+				</if>
+				<if test="age != null">
+					id = #{id} and password = #{password}
+				</if>
+			</where>
+	</select>
+	
+	<!-- 강사님 login에 vo가 들어가면 이상한 것 같아서
+		login을 getMember("id").getPassword().equals(pass) 이런식으로 구현했습니당...
+	<select id="Login" parameterType="user" resultMap="MemberSelectMap">
+		<include refid="select-members"/>
+		WHERE id=#{value} and password=#{value}
+	</select>
+	 -->
+	
+	
+	
+	<!-- 동적인 쿼리문...  
+		where절 이후를 동적으로 가동하는 쿼리문
+		userName이 홍길동 age가 30인 데이타를 검색하는 쿼리문을 동적으로 작성..... 
+	
+		<select id="login" parameterType="member" resultMap="MemberSelectMap">
+			<include refid="select-members"/>
+			<where>
+				<if test="userName != null">
+					user_name LIKE #{userName}
+				</if>
+				<if test="age != null">
+					OR age LIKE #{age}
+				</if>
+			</where>
+			ORDER BY user_id DESC
+		</select>-->
+</mapper>

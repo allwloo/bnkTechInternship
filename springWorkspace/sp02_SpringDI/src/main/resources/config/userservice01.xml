@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Bean 설정 File  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+												 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+     <!--
+     	ㅇ Hello instance 생성 서술적, 선언적 기술
+			1. bean element  
+				- id : instance identifier 
+				- class : instance 생성 Bean (FQCN)
+     -->
+     
+    
+    <bean id="user01" class="spring.service.domain.User">
+    <property name="userId" value="01유저"/>
+    <property name="age" value="01" />
+    </bean>
+     <!-- 사용자 정의 빈: id="user02" :: setter 단순 파라미터 주입:: age, id, 객체주입 password  -->
+    <bean id="user02" class="spring.service.domain.User">
+    <property name="userId" value="02유저"/>
+    <property name="age" value="02"/>
+    <property name="password" ref="str"/>
+    </bean>
+    <!-- 사용자 정의 핀: id="user03" :: DI 없음(주입없음). -->
+    <bean id="user03" class="spring.service.domain.User"/>
+	
+	<!-- 사용자 정의 빈: id="user04" :: 생성자 주입인데 단순 파라미터값을 생성자로 주입할겁니다. :: 04,04,유저 -->
+	<bean id="user04" class="spring.service.domain.User">
+	<constructor-arg value="04"></constructor-arg>
+	<constructor-arg value="04유저"></constructor-arg>
+	</bean>
+	
+	<!-- 사용자 정의 빈: id="user05" :: 생성자 주입인데 단순 파라미터값을 생성자로 주입할겁니다. :: 05,05유저 -->
+	<!-- 
+	<bean id="user05" class="spring.service.domain.User">
+	<constructor-arg index="0" value="05"></constructor-arg>
+	<constructor-arg index="1" value="0505"></constructor-arg>
+	<constructor-arg index="2" value="05유저"></constructor-arg>
+	</bean>
+	 -->
+	 <bean id="user05" class="spring.service.domain.User">
+	<constructor-arg type="int" value="05"></constructor-arg>
+	<constructor-arg type="java.lang.String" value="0505"></constructor-arg>
+	<constructor-arg type="java.lang.String" value="05유저"></constructor-arg>
+	</bean>
+	 
+	 
+<!-- api빈 정의 id="password- class="java.lang.String"-->
+<bean id="str" class="java.lang.String">
+<constructor-arg value="7777"/>
+</bean>
+	
+	
+	
+</beans>
+
+<!--  객체생서으이 주체는 container에게.. ioc 제어의 역전, 프로그래머는 주문서 작성의 주체... -->

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--	
+	mybatis-userservice-mapping.xml : SQL 를 갖는 설정화일 (MetaData) 
+	- MyBatis Framework 은 XML MetaData를 사용 SQL구문을 관리하며,
+	  (SQL은 xml 을 통해 적절히 캡슐화 되어 애플리케이선 의 외부로 분리함)
+	- SQL문의 입력(?) / 출력(?)을 매핑한다.  <== 아래의 select element 참조
+ -->
+ 
+<!--
+SELECT문일때,
+컬럼명과 VO필드명이 다를때(user_name | userName)
+select문에서 컬럼명 옆에 반드시 AS 알리야스를 일일히 지정해야한다.
+
+이런 경우를 위해서 ResultMap이라는게 있어용
+
+ -->
+<mapper namespace="UserMapper08">
+	<resultMap type="user" id="userSelectMap">
+		<result property="userId" column="user_id" jdbcType="VARCHAR" />
+		<result property="userName" column="user_name" jdbcType="VARCHAR" />
+		<result property="password" column="password" jdbcType="VARCHAR" />
+		<result property="age" column="age" jdbcType="INTEGER" />
+		<result property="grade" column="grade" jdbcType="NUMERIC" />
+		<result property="regDate" column="reg_date" jdbcType="DATE" />
+	</resultMap>
+	
+	<sql id="select-users">
+		SELECT
+		user_id, user_name, password, age, grade, reg_date
+		FROM users
+	</sql>
+	<sql id="orderby-userid-desc">
+		ORDER BY user_id DESC
+	</sql>
+	
+	<select id="getUser" parameterType="user" resultMap="userSelectMap">
+		<include refid="select-users"/>
+		WHERE user_id=#{userId}
+	</select>
+	
+	<!-- 동적인 쿼리문...  
+		where절 이후를 동적으로 가동하는 쿼리문
+		userName이 홍길동 age가 30인 데이타를 검색하는 쿼리문을 동적으로 작성.....
+	-->
+		<select id="getUserList01" parameterType="user" resultMap="userSelectMap">
+			<include refid="select-users"/>
+			<where>
+				<if test="userName != null">
+					user_name LIKE #{userName}
+				</if>
+				<if test="age != null">
+					OR age LIKE #{age}
+				</if>
+			</where>
+			ORDER BY user_id DESC
+		</select>
+</mapper>
+
+<!-- 
+	단순 패러미터 값을 받는 문법 #{value}
+	J2SE API에서 제공되는 라이브러리 중에서 많이 사용되는 것들은 전부 ㅏㄹ리야스로 제공되어있다
+	
+	java.lang.String :: string
+	java.lang.Byte, Integer, Float, Double :: byte, long, float, double, int
+	java.util.Hashmap :: hashmap
+	java.util.ArrayList ;; arraylist
+	
+	
+	byte :: _byte
+	int :: _int 
+	
+	LIKE 연산자와 와일드카드
+ -->
+ 
+ 
+ <!-- 
+ 	Null 값 허용하는 옵션을 SqlMapConfig01.xml에 추가
+ 	
+ 	CRUD
+ 	select: session.selectList() : List
+ 			session.selectOne() : Obejct
+ 	insert:	session.insert() : Object(0,1)
+ 	delete: session.delete() : Object(0,1)
+ 	update: session.update() : Object(0,1)
+ 	
+ 	MyBatis Framework에서만 작동할 경우 (Spring 연결 안된 경우)
+ 	insert(), delete(), update() 수행직후 반드시 commit()해야 완벽하게 디비 반영된다.
+ 	반대로, Spring 연결이 되는 경우에는 insert(), delete(), update() 수행직후 commit()을 하게 되면 Error 발생
+  -->
