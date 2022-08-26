@@ -14,5 +14,22 @@
 	가   격 : <input type="text" name="price"><br><br>
 	<input type="submit" value="상품등록"/>
 </form>
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+<br><br><br>
+<h2>상품명 , 제조사별 검색하기</h2>
+<form action="myProductSearch.do">
+	<select name="command">
+		<option value="">===아래에서 검색방법을 선택하세요...</option>
+		<option value="findProductByName">상품명으로 검색</option>
+		<option value="findProductByMaker">상품명으로 검색</option>
+		<option value="findProducts">모든 상품 검색</option>
+	</select>
+	
+	<input type="text" name="word"><br><br>
+	<input type="submit" value="상품검색"/>
+</form>
 </body>
 </html>

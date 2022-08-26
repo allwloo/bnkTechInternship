@@ -1,5 +1,7 @@
 package com.service.spring.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +20,27 @@ public class MyProductDAOImpl implements MyProductDAO {
 	@Override
 	public int addProduct(MyProduct vo) throws Exception {
 		return sqlSession.insert(NS+"addProduct",vo);
+	}
+
+
+	@Override
+	public List<MyProduct> findProductByName(String name) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NS+"findProductByName", name);
+	}
+
+
+	@Override
+	public List<MyProduct> findProductByMaker(String maker) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NS+"findProductByMaker", maker);
+	}
+
+
+	@Override
+	public List<MyProduct> findProducts() throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NS+"findProduct");
 	}
 
 }

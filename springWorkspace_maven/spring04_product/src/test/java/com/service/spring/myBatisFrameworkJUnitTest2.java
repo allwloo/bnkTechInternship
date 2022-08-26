@@ -1,7 +1,7 @@
 package com.service.spring;
 
-import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -16,18 +16,22 @@ public class myBatisFrameworkJUnitTest2 {
 	@Test
 	public void unit() throws Exception{
 		// TODO Auto-generated method stub
-					// 1. ¼³Á¤¹®¼­¸¦ DIContainer°¡ ÀĞ¾îµé¿©¾ß ÇÑ´Ù.
+					// 1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DIContainerï¿½ï¿½ ï¿½Ğ¾ï¿½é¿©ï¿½ï¿½ ï¿½Ñ´ï¿½.
 					Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
 					
 					SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
 					
 					SqlSession session = factory.openSession();
 					
-					MyProduct vo = new MyProduct("°ø±â¹æ¿ï ¼¼Å¹±â","»ï¼º",380000);
+					MyProduct vo = new MyProduct("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¹ï¿½ï¿½","ï¿½ï¼º",380000);
 					
 					session.insert("ns.sql.MyProduct.addProduct",vo);
 					session.commit();
-					System.out.println("¿Ï·á ! ");
+					System.out.println("ï¿½Ï·ï¿½ ! ");
+					
+					List<MyProduct> list = session.selectList("ns.sql.MyProduct.findProductByName", "ì„¸íƒê¸°");
+					
+					System.out.println(list);
 	}
 
 }

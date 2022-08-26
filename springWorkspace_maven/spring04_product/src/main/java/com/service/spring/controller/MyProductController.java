@@ -1,5 +1,7 @@
 package com.service.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +25,29 @@ public class MyProductController {
 		 * 
 		 * MyProduct vo = new MyProduct(name, maker, price);
 		 */
-		System.out.println("µðºñ ÀÔ·Â Àü: "+vo+"\n");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½: "+vo+"\n");
 		myProductService.addProduct(vo);
-		System.out.println("µðºñ ÀÔ·Â ÈÄ: "+vo+"\n");
+		System.out.println("ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½: "+vo+"\n");
 		return new ModelAndView("insert_result", "info", vo);
+	}
+	
+	@RequestMapping("myProductSearch.do")
+	public ModelAndView search(String command, String word) throws Exception{
+		
+		List<MyProduct> list = null;
+		String viewName = "find_result";
+
+		if(command.equals("findProductByName")){
+			list = myProductService.findProductByName(word);
+			viewName = "find_result";
+		}else if(command.contentEquals("findProductByMaker")) {
+			list = myProductService.findProductByMaker(word);
+			viewName = "find_result";
+		}else {
+			list = myProductService.findProducts();
+			viewName = "find_result";
+		}
+		return new ModelAndView(viewName,"list",list);
+		
 	}
 }

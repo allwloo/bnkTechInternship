@@ -8,7 +8,27 @@
 		화면으로 부터 값을 받아서 생성하는 VO와 디비에서 증가된 레코드 ROW가 완전히 동기화 되도록 쿼리문이 작성되어져야
 		이후에 프로그램 작성시 문제 발생 되지 않는다.
 		SelectKey 쿼리는 Insert문에만 있음
+		
+		setting name="mapUnderscoreToCamelcase" value="true"로 SqlMapConfig에서 지정.
+		
+		1. 필드명과 컬럼명이 같을 때는..
+		2. 컬럼명은 필드명 camelCase일때 굳이 resultMap 사용하지 말고 setting 지정
+		3. 2번의 패턴으로 달라지지 않는 경우 resultMap...
 	-->
+	
+	<resultMap type="myProduct" id="myProductSelectMap">
+		<result property="id" column="id" jdbcType="VARCHAR" />
+		<result property="name" column="name" jdbcType="VARCHAR" />
+		<result property="maker" column="maker" jdbcType="VARCHAR" />
+		<result property="price" column="price" jdbcType="VARCHAR" />
+	</resultMap> 
+	
+	<sql id="select-products">
+		SELECT
+		id, name, maker, price
+		FROM myproduct
+	</sql>
+	
 	<insert id="addProduct" parameterType="myProduct">
 		<selectKey keyProperty="id" resultType="int" order="BEFORE">
 			SELECT myproduct_seq.nextVal FROM dual
@@ -22,6 +42,24 @@
 		SELECT *
 		FROM myproduct
 	</select>
+	
+	<!--  추가되는 기능 :: 상품명, 제조사, 모든 상품 검색 -->
+	
+	<select id="findProductByName" parameterType="string" resultMap="myProductSelectMap">
+		<include refid="select-products"/>
+		WHERE name LIKE '%'||#{value}||'%'
+	</select> 
+	
+	<select id="findProductByMaker" parameterType="string" resultMap="myProductSelectMap">
+		<include refid="select-products"/>
+		WHERE maker = #{value}
+	</select>
+	
+	<select id="findProduct" parameterType="string" resultMap="myProductSelectMap">
+		<include refid="select-products"/>
+	</select>
+	
+	
 </mapper>
 
  
